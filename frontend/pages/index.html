@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProcureFlow</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/landing.css">
+</head>
+<body class="home-page">
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">ProcureFlow</a>
+                <nav class="site-nav" aria-label="Main navigation">
+                    <a href="/static/pages/dashboard.html">Dashboard</a>
+                    <a href="/static/pages/approval_tasks.html">Approvals</a>
+                    <a href="/static/pages/request_form.html" class="btn btn-primary btn-sm">New Request</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-shell">
+                    <p class="hero-kicker">For fab operations, procurement, and finance</p>
+                    <h1>Semiconductor Supply-Chain Procurement, Routed with Control.</h1>
+                    <p class="hero-subtitle">
+                        ProcureFlow turns wafer, chemical, spare-part, and supplier-service requests
+                        into a clear operational workflow: capture missing details, apply policy,
+                        route approvals, and keep every decision audit-ready.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="/static/pages/request_form.html" class="btn btn-primary btn-lg" aria-label="Start a new procurement request">
+                            Start New Request
+                        </a>
+                        <a href="/static/pages/dashboard.html" class="btn btn-secondary btn-lg" aria-label="Open operational dashboard">
+                            Open Dashboard
+                        </a>
+                    </div>
+
+                    <ul class="landing-bullet-grid" aria-label="Key workflow benefits">
+                        <li class="landing-bullet">
+                            <span class="landing-bullet-title">Request clarity</span>
+                            <p>Catch missing justification, item detail, and delivery context before review begins.</p>
+                        </li>
+                        <li class="landing-bullet">
+                            <span class="landing-bullet-title">Policy control</span>
+                            <p>Apply deterministic checks by category, spend threshold, and approval role.</p>
+                        </li>
+                        <li class="landing-bullet">
+                            <span class="landing-bullet-title">Approval speed</span>
+                            <p>Route manager, procurement, and finance decisions without off-thread email loops.</p>
+                        </li>
+                        <li class="landing-bullet">
+                            <span class="landing-bullet-title">Audit visibility</span>
+                            <p>Keep each request visible from intake through approval and PO-ready output.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="workflow-band" aria-labelledby="workflow-title">
+            <div class="container">
+                <div class="workflow-band-panel">
+                    <div class="workflow-band-header">
+                        <p class="workflow-kicker">Operational sequence</p>
+                        <h2 id="workflow-title" class="workflow-title">Request, clarify, evaluate, route, track.</h2>
+                        <p class="workflow-summary">
+                            A short deterministic path from fab demand to approval-ready procurement output.
+                        </p>
+                    </div>
+
+                    <ol class="workflow-strip">
+                        <li class="workflow-step">
+                            <span class="workflow-step-label">Request</span>
+                            <p>Enter wafers, chemicals, spare parts, or supplier services.</p>
+                        </li>
+                        <li class="workflow-step">
+                            <span class="workflow-step-label">Clarify</span>
+                            <p>Resolve missing business context before procurement review starts.</p>
+                        </li>
+                        <li class="workflow-step">
+                            <span class="workflow-step-label">Evaluate</span>
+                            <p>Check catalog alignment, spend thresholds, and policy rules.</p>
+                        </li>
+                        <li class="workflow-step">
+                            <span class="workflow-step-label">Route</span>
+                            <p>Assign manager, procurement, and finance approval steps by role.</p>
+                        </li>
+                        <li class="workflow-step">
+                            <span class="workflow-step-label">Track</span>
+                            <p>Follow status, decisions, and PO-ready output through one audit trail.</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span>&copy; 2026 ProcureFlow</span>
+                <span class="footer-sep">&middot;</span>
+                <span>Powered by IBM watsonx</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/ui.js"></script>
+</body>
+</html>

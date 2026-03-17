@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operations Dashboard - ProcureFlow</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">ProcureFlow</a>
+                <nav class="site-nav" aria-label="Main navigation">
+                    <a href="/static/pages/dashboard.html" class="active">Dashboard</a>
+                    <a href="/static/pages/approval_tasks.html">Approvals</a>
+                    <a href="/static/pages/request_form.html" class="btn btn-primary btn-sm">New Request</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container-wide">
+            <div class="section-header motion-fade-in">
+                <div>
+                    <h1>Operations Procurement Dashboard</h1>
+                    <p class="section-subtitle">Monitor material, part, and service requests across the operational workflow.</p>
+                </div>
+                <div class="section-actions">
+                    <button type="button" class="btn btn-secondary btn-sm" id="refresh-btn">Refresh</button>
+                    <a href="/static/pages/request_form.html" class="btn btn-primary btn-sm">New Request</a>
+                </div>
+            </div>
+
+            <div class="stat-row motion-fade-in motion-delay-1" id="stat-row">
+                <div class="stat-card stat-card--primary">
+                    <div class="stat-value" id="stat-total">&mdash;</div>
+                    <div class="stat-label">Total Requests</div>
+                </div>
+                <div class="stat-card stat-card--warning">
+                    <div class="stat-value" id="stat-review">&mdash;</div>
+                    <div class="stat-label">Open Review</div>
+                </div>
+                <div class="stat-card stat-card--primary">
+                    <div class="stat-value" id="stat-queue">&mdash;</div>
+                    <div class="stat-label">Approval Queue</div>
+                </div>
+                <div class="stat-card stat-card--success">
+                    <div class="stat-value" id="stat-ready">&mdash;</div>
+                    <div class="stat-label">Fulfillment Ready</div>
+                </div>
+            </div>
+
+            <div class="dashboard-toolbar motion-fade-in motion-delay-2">
+                <div class="dashboard-filters">
+                    <span class="toolbar-label">Workflow Filters</span>
+                    <select id="filter-status" class="form-select" aria-label="Filter by status">
+                        <option value="">All Workflow States</option>
+                        <option value="draft">Draft</option>
+                        <option value="clarification">Needs Info</option>
+                        <option value="policy_review">Policy Review</option>
+                        <option value="pending_approval">In Approval</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                    <select id="filter-requester" class="form-select" aria-label="Filter by requester">
+                        <option value="">All Request Owners</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="dashboard-feedback" class="state-banner-region mb-4" aria-live="polite"></div>
+
+            <div id="loading-state" class="page-panel dashboard-loading-shell motion-fade-in motion-delay-2">
+                <div class="dashboard-loading-toolbar skeleton-row">
+                    <div class="skeleton skeleton-heading"></div>
+                    <div class="skeleton skeleton-pill"></div>
+                    <div class="skeleton skeleton-pill"></div>
+                </div>
+                <div class="dashboard-loading-table skeleton-stack">
+                    <div class="skeleton skeleton-table-row"></div>
+                    <div class="skeleton skeleton-table-row"></div>
+                    <div class="skeleton skeleton-table-row"></div>
+                    <div class="skeleton skeleton-table-row"></div>
+                </div>
+            </div>
+
+            <div id="error-state" class="page-panel motion-fade-in" style="display:none;"></div>
+
+            <div id="empty-state" class="page-panel motion-fade-in" style="display:none;"></div>
+
+            <div id="request-list" class="motion-fade-in motion-delay-3" style="display:none;">
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Request</th>
+                                <th>Workflow Status</th>
+                                <th>Request Owner</th>
+                                <th>Owning Department</th>
+                                <th>Request Value</th>
+                                <th>Submitted</th>
+                            </tr>
+                        </thead>
+                        <tbody id="request-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span>&copy; 2026 ProcureFlow</span>
+                <span class="footer-sep">&middot;</span>
+                <span>Powered by IBM watsonx</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/ui.js"></script>
+    <script src="/static/js/caseUtils.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

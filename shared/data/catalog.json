@@ -1,0 +1,114 @@
+[
+  {
+    "catalog_id": "WAF-001",
+    "category": "wafers",
+    "description": "300mm Prime Silicon Wafer Lot, P-Type <100>, Box of 25",
+    "unit_price_cents": 185000,
+    "vendor": "Shin-Etsu Handotai America"
+  },
+  {
+    "catalog_id": "WAF-002",
+    "category": "wafers",
+    "description": "300mm Blanket Oxide Monitor Wafer Lot, Box of 25",
+    "unit_price_cents": 142000,
+    "vendor": "SUMCO Phoenix"
+  },
+  {
+    "catalog_id": "FAB-MAT-001",
+    "category": "specialty_chemicals",
+    "description": "KrF Photoresist 5L",
+    "unit_price_cents": 165000,
+    "vendor": "JSR Micro"
+  },
+  {
+    "catalog_id": "CHEM-002",
+    "category": "specialty_chemicals",
+    "description": "CMP Slurry, Silica-Based, 20L Drum",
+    "unit_price_cents": 128000,
+    "vendor": "Entegris"
+  },
+  {
+    "catalog_id": "CHEM-003",
+    "category": "specialty_chemicals",
+    "description": "Electronic Grade Isopropyl Alcohol 20L",
+    "unit_price_cents": 42000,
+    "vendor": "Avantor"
+  },
+  {
+    "catalog_id": "CR-001",
+    "category": "cleanroom_consumables",
+    "description": "Cleanroom Polyester Wipers, Class 10, Case of 600",
+    "unit_price_cents": 8900,
+    "vendor": "Berkshire"
+  },
+  {
+    "catalog_id": "CR-002",
+    "category": "cleanroom_consumables",
+    "description": "Nitrile Cleanroom Gloves, 300mm, Case of 1000",
+    "unit_price_cents": 12400,
+    "vendor": "Ansell"
+  },
+  {
+    "catalog_id": "EQP-001",
+    "category": "equipment_spare_parts",
+    "description": "Dry Vacuum Pump Rebuild Kit",
+    "unit_price_cents": 265000,
+    "vendor": "Edwards Vacuum"
+  },
+  {
+    "catalog_id": "EQP-002",
+    "category": "equipment_spare_parts",
+    "description": "Etch Chamber O-Ring Seal Kit",
+    "unit_price_cents": 22000,
+    "vendor": "Lam Research"
+  },
+  {
+    "catalog_id": "EQP-003",
+    "category": "equipment_spare_parts",
+    "description": "Mass Flow Controller Spare Module",
+    "unit_price_cents": 148000,
+    "vendor": "MKS Instruments"
+  },
+  {
+    "catalog_id": "TST-001",
+    "category": "testing_materials",
+    "description": "Probe Card Cleaning Sheet Pack",
+    "unit_price_cents": 4600,
+    "vendor": "FormFactor"
+  },
+  {
+    "catalog_id": "TST-002",
+    "category": "testing_materials",
+    "description": "Inline Metrology Qualification Coupon Set",
+    "unit_price_cents": 37500,
+    "vendor": "Nova Measuring Instruments"
+  },
+  {
+    "catalog_id": "MRO-001",
+    "category": "mro",
+    "description": "ULPA Fan Filter Unit Replacement Cartridge",
+    "unit_price_cents": 68000,
+    "vendor": "Camfil"
+  },
+  {
+    "catalog_id": "MRO-002",
+    "category": "mro",
+    "description": "AMHS Conveyor Timing Belt Kit",
+    "unit_price_cents": 18400,
+    "vendor": "Daifuku"
+  },
+  {
+    "catalog_id": "SVC-001",
+    "category": "supplier_services",
+    "description": "Gas Cabinet Sensor Calibration Service Visit",
+    "unit_price_cents": 95000,
+    "vendor": "Honeywell Analytics"
+  },
+  {
+    "catalog_id": "SVC-002",
+    "category": "supplier_services",
+    "description": "Qualified Supplier Lot Trace Audit Support",
+    "unit_price_cents": 185000,
+    "vendor": "IBM Consulting"
+  }
+]

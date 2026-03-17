@@ -1,0 +1,10 @@
+[
+  { "name": "Fab Operations", "cost_center": "CC-FAB-100" },
+  { "name": "Process Engineering", "cost_center": "CC-PE-110" },
+  { "name": "Equipment Maintenance", "cost_center": "CC-EM-120" },
+  { "name": "Quality", "cost_center": "CC-QLT-130" },
+  { "name": "Supply Chain", "cost_center": "CC-SCM-140" },
+  { "name": "Procurement", "cost_center": "CC-PRO-150" },
+  { "name": "Finance", "cost_center": "CC-FIN-160" },
+  { "name": "R&D", "cost_center": "CC-RND-170" }
+]

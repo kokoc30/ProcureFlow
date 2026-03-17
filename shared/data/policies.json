@@ -1,0 +1,130 @@
+[
+  {
+    "rule_id": "POL-WAF-001",
+    "rule_name": "Wafers - standard lot review",
+    "category": "wafers",
+    "max_amount_cents": 300000,
+    "required_approvers": ["manager", "procurement"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-WAF-002",
+    "rule_name": "Wafers - high-value lot review",
+    "category": "wafers",
+    "max_amount_cents": null,
+    "required_approvers": ["manager", "dept_head", "procurement", "finance"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-CHEM-001",
+    "rule_name": "Specialty chemicals - controlled material review",
+    "category": "specialty_chemicals",
+    "max_amount_cents": 300000,
+    "required_approvers": ["manager", "procurement"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-CHEM-002",
+    "rule_name": "Specialty chemicals - high-value controlled material review",
+    "category": "specialty_chemicals",
+    "max_amount_cents": null,
+    "required_approvers": ["manager", "dept_head", "procurement", "finance"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-CR-001",
+    "rule_name": "Clean-room consumables - routine replenishment",
+    "category": "cleanroom_consumables",
+    "max_amount_cents": 60000,
+    "required_approvers": ["manager"],
+    "auto_approve_below_cents": 15000
+  },
+  {
+    "rule_id": "POL-CR-002",
+    "rule_name": "Clean-room consumables - large replenishment",
+    "category": "cleanroom_consumables",
+    "max_amount_cents": null,
+    "required_approvers": ["manager", "procurement"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-EQP-001",
+    "rule_name": "Equipment spare parts - standard maintenance",
+    "category": "equipment_spare_parts",
+    "max_amount_cents": 150000,
+    "required_approvers": ["manager"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-EQP-002",
+    "rule_name": "Equipment spare parts - high-value maintenance",
+    "category": "equipment_spare_parts",
+    "max_amount_cents": null,
+    "required_approvers": ["manager", "procurement"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-TST-001",
+    "rule_name": "Testing materials - routine lab supply",
+    "category": "testing_materials",
+    "max_amount_cents": 50000,
+    "required_approvers": ["manager"],
+    "auto_approve_below_cents": 10000
+  },
+  {
+    "rule_id": "POL-TST-002",
+    "rule_name": "Testing materials - escalated review",
+    "category": "testing_materials",
+    "max_amount_cents": null,
+    "required_approvers": ["manager", "procurement"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-MRO-001",
+    "rule_name": "MRO - standard facility support",
+    "category": "mro",
+    "max_amount_cents": 75000,
+    "required_approvers": ["manager"],
+    "auto_approve_below_cents": 20000
+  },
+  {
+    "rule_id": "POL-MRO-002",
+    "rule_name": "MRO - major facility support",
+    "category": "mro",
+    "max_amount_cents": null,
+    "required_approvers": ["manager", "procurement"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-SVC-001",
+    "rule_name": "Supplier services - operational support",
+    "category": "supplier_services",
+    "max_amount_cents": 150000,
+    "required_approvers": ["manager", "procurement"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-SVC-002",
+    "rule_name": "Supplier services - engagement escalation",
+    "category": "supplier_services",
+    "max_amount_cents": null,
+    "required_approvers": ["manager", "dept_head", "procurement", "finance"],
+    "auto_approve_below_cents": null
+  },
+  {
+    "rule_id": "POL-DEF-001",
+    "rule_name": "General - low-risk purchase",
+    "category": "default",
+    "max_amount_cents": 40000,
+    "required_approvers": ["manager"],
+    "auto_approve_below_cents": 10000
+  },
+  {
+    "rule_id": "POL-DEF-002",
+    "rule_name": "General - escalated purchase",
+    "category": "default",
+    "max_amount_cents": null,
+    "required_approvers": ["manager", "procurement"],
+    "auto_approve_below_cents": null
+  }
+]

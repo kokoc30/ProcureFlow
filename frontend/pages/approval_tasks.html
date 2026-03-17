@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approval Queue - ProcureFlow</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/approval.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">ProcureFlow</a>
+                <nav class="site-nav" aria-label="Main navigation">
+                    <a href="/static/pages/dashboard.html">Dashboard</a>
+                    <a href="/static/pages/approval_tasks.html" class="active">Approvals</a>
+                    <a href="/static/pages/request_form.html" class="btn btn-primary btn-sm">New Request</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container-wide">
+            <div class="section-header motion-fade-in">
+                <div>
+                    <h1>Operations Approval Queue</h1>
+                    <p class="section-subtitle">Review material, part, and service requests awaiting a routing decision.</p>
+                </div>
+                <div class="section-actions">
+                    <button type="button" class="btn btn-secondary btn-sm" id="refresh-btn">Refresh Queue</button>
+                </div>
+            </div>
+
+            <div id="approval-feedback" class="state-banner-region mb-4" aria-live="polite"></div>
+
+            <div id="loading-state" class="approval-loading-shell motion-fade-in motion-delay-1">
+                <div class="approval-loading-grid">
+                    <div class="skeleton skeleton-rect approval-loading-card"></div>
+                    <div class="skeleton skeleton-rect approval-loading-card"></div>
+                    <div class="skeleton skeleton-rect approval-loading-card"></div>
+                </div>
+                <div class="split-layout approval-workspace">
+                    <div class="approval-section-panel">
+                        <div class="skeleton-stack">
+                            <div class="skeleton skeleton-heading"></div>
+                            <div class="skeleton skeleton-table-row"></div>
+                            <div class="skeleton skeleton-table-row"></div>
+                            <div class="skeleton skeleton-table-row"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="skeleton-stack">
+                                <div class="skeleton skeleton-pill"></div>
+                                <div class="skeleton skeleton-heading"></div>
+                                <div class="skeleton skeleton-line"></div>
+                                <div class="skeleton skeleton-line"></div>
+                                <div class="skeleton skeleton-rect approval-loading-detail"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="error-state" class="approval-section-panel motion-fade-in" style="display:none;"></div>
+
+            <div id="approval-content" class="motion-fade-in motion-delay-2" style="display:none;">
+                <div id="approval-overview" class="approval-overview"></div>
+
+                <div class="split-layout approval-workspace">
+                    <div class="approval-queue-column">
+                        <div id="pending-section" class="approval-section-panel">
+                            <div class="approval-section-header">
+                                <div>
+                                    <h2 class="approval-section-title">Awaiting Decision</h2>
+                                    <p class="approval-section-subtitle">Select an approval task to review the request context, add an optional note, and record a decision.</p>
+                                </div>
+                            </div>
+                            <div id="pending-list" class="approval-list"></div>
+                            <div id="pending-empty" style="display:none;"></div>
+                        </div>
+
+                        <div id="decided-section" class="approval-section-panel approval-history-panel mt-6">
+                            <div class="approval-section-header">
+                                <div>
+                                    <h2 class="approval-section-title">Completed Decisions</h2>
+                                    <p class="approval-section-subtitle">Recently recorded approvals and rejections remain visible for quick audit review.</p>
+                                </div>
+                            </div>
+                            <div id="decided-list" class="approval-list approval-list-compact"></div>
+                        </div>
+                    </div>
+
+                    <aside class="approval-review-column">
+                        <div class="card approval-review-panel">
+                            <div class="card-header">Review Detail</div>
+                            <div class="card-body" id="review-panel"></div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span>&copy; 2026 ProcureFlow</span>
+                <span class="footer-sep">&middot;</span>
+                <span>Powered by IBM watsonx</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/ui.js"></script>
+    <script src="/static/js/caseUtils.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/approval.js"></script>
+</body>
+</html>

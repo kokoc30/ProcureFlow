@@ -1,0 +1,209 @@
+{
+  "$defs": {
+    "Item": {
+      "properties": {
+        "catalog_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Catalog Id"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "quantity": {
+          "default": 1,
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "unit_price_cents": {
+          "default": 0,
+          "title": "Unit Price Cents",
+          "type": "integer"
+        },
+        "vendor": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Vendor"
+        }
+      },
+      "required": [
+        "description"
+      ],
+      "title": "Item",
+      "type": "object"
+    },
+    "RequestStatus": {
+      "description": "Lifecycle states for a purchase request.",
+      "enum": [
+        "draft",
+        "clarification",
+        "policy_review",
+        "pending_approval",
+        "approved",
+        "rejected"
+      ],
+      "title": "RequestStatus",
+      "type": "string"
+    },
+    "Urgency": {
+      "description": "Request urgency levels.",
+      "enum": [
+        "low",
+        "standard",
+        "high",
+        "critical"
+      ],
+      "title": "Urgency",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "requester_id": {
+      "title": "Requester Id",
+      "type": "string"
+    },
+    "department": {
+      "title": "Department",
+      "type": "string"
+    },
+    "cost_center": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Cost Center"
+    },
+    "title": {
+      "default": "",
+      "title": "Title",
+      "type": "string"
+    },
+    "description": {
+      "default": "",
+      "title": "Description",
+      "type": "string"
+    },
+    "justification": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Justification"
+    },
+    "urgency": {
+      "$ref": "#/$defs/Urgency",
+      "default": "standard"
+    },
+    "delivery_date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Delivery Date"
+    },
+    "requested_items": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Requested Items",
+      "type": "array"
+    },
+    "items": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Item"
+      },
+      "title": "Items",
+      "type": "array"
+    },
+    "total_cents": {
+      "default": 0,
+      "title": "Total Cents",
+      "type": "integer"
+    },
+    "status": {
+      "$ref": "#/$defs/RequestStatus",
+      "default": "draft"
+    },
+    "clarification_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Clarification Ids",
+      "type": "array"
+    },
+    "approval_ids": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Approval Ids",
+      "type": "array"
+    },
+    "po_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Po Id"
+    },
+    "created_at": {
+      "title": "Created At",
+      "type": "string"
+    },
+    "updated_at": {
+      "title": "Updated At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "requester_id",
+    "department",
+    "requested_items",
+    "created_at",
+    "updated_at"
+  ],
+  "title": "Request",
+  "type": "object"
+}
