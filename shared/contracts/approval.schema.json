@@ -1,0 +1,90 @@
+{
+  "$defs": {
+    "ApprovalDecision": {
+      "description": "Per-task decision by an individual approver.",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "title": "ApprovalDecision",
+      "type": "string"
+    },
+    "ApproverRole": {
+      "description": "Roles that can appear in approval chains.",
+      "enum": [
+        "manager",
+        "dept_head",
+        "procurement",
+        "finance"
+      ],
+      "title": "ApproverRole",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "request_id": {
+      "title": "Request Id",
+      "type": "string"
+    },
+    "role": {
+      "$ref": "#/$defs/ApproverRole"
+    },
+    "approver_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Approver Id"
+    },
+    "decision": {
+      "$ref": "#/$defs/ApprovalDecision",
+      "default": "pending"
+    },
+    "comment": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Comment"
+    },
+    "decided_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Decided At"
+    },
+    "created_at": {
+      "title": "Created At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "request_id",
+    "role",
+    "created_at"
+  ],
+  "title": "ApprovalTask",
+  "type": "object"
+}

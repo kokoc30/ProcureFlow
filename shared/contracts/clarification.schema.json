@@ -1,0 +1,73 @@
+{
+  "$defs": {
+    "ClarificationStatus": {
+      "description": "States for a single clarification question.",
+      "enum": [
+        "pending",
+        "answered"
+      ],
+      "title": "ClarificationStatus",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "request_id": {
+      "title": "Request Id",
+      "type": "string"
+    },
+    "question": {
+      "title": "Question",
+      "type": "string"
+    },
+    "answer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Answer"
+    },
+    "field": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Field",
+      "description": "Optional target request field (e.g. justification, cost_center, delivery_date) for deterministic back-fill."
+    },
+    "status": {
+      "$ref": "#/$defs/ClarificationStatus",
+      "default": "pending"
+    },
+    "created_at": {
+      "title": "Created At",
+      "type": "string"
+    },
+    "updated_at": {
+      "title": "Updated At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "request_id",
+    "question",
+    "created_at",
+    "updated_at"
+  ],
+  "title": "Clarification",
+  "type": "object"
+}

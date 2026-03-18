@@ -1,0 +1,99 @@
+{
+  "$defs": {
+    "Item": {
+      "properties": {
+        "catalog_id": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Catalog Id"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "quantity": {
+          "default": 1,
+          "title": "Quantity",
+          "type": "integer"
+        },
+        "unit_price_cents": {
+          "default": 0,
+          "title": "Unit Price Cents",
+          "type": "integer"
+        },
+        "vendor": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "null" }
+          ],
+          "default": null,
+          "title": "Vendor"
+        }
+      },
+      "required": ["description"],
+      "title": "Item",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "request_id": {
+      "title": "Request Id",
+      "type": "string"
+    },
+    "po_number": {
+      "title": "Po Number",
+      "type": "string"
+    },
+    "items": {
+      "items": { "$ref": "#/$defs/Item" },
+      "title": "Items",
+      "type": "array"
+    },
+    "total_cents": {
+      "title": "Total Cents",
+      "type": "integer"
+    },
+    "vendor_summary": {
+      "title": "Vendor Summary",
+      "type": "object",
+      "additionalProperties": { "type": "integer" }
+    },
+    "review_required": {
+      "title": "Review Required",
+      "type": "boolean",
+      "default": false
+    },
+    "unresolved_items": {
+      "title": "Unresolved Items",
+      "type": "array",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "summary": {
+      "title": "Summary",
+      "type": "string"
+    },
+    "created_at": {
+      "title": "Created At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "request_id",
+    "po_number",
+    "items",
+    "total_cents",
+    "summary",
+    "created_at"
+  ],
+  "title": "PurchaseOrder",
+  "type": "object"
+}

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: procureflow
+    runtime: docker
+    plan: free
+    envVars:
+      - key: WATSONX_API_KEY
+        sync: false
+      - key: WATSONX_PROJECT_ID
+        sync: false
+      - key: WATSONX_URL
+        value: https://us-south.ml.cloud.ibm.com
+      - key: WATSONX_MODEL_ID
+        value: ibm/granite-3-8b-instruct
+    healthCheckPath: /api/v1/health

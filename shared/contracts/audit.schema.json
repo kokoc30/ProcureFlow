@@ -1,0 +1,60 @@
+{
+  "$defs": {
+    "AuditAction": {
+      "description": "Actions recorded in the audit timeline.",
+      "enum": [
+        "request_created",
+        "clarification_requested",
+        "clarification_answered",
+        "policy_evaluated",
+        "approval_assigned",
+        "approval_decided",
+        "po_generated"
+      ],
+      "title": "AuditAction",
+      "type": "string"
+    }
+  },
+  "properties": {
+    "id": {
+      "title": "Id",
+      "type": "string"
+    },
+    "request_id": {
+      "title": "Request Id",
+      "type": "string"
+    },
+    "action": {
+      "$ref": "#/$defs/AuditAction"
+    },
+    "actor_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Actor Id"
+    },
+    "detail": {
+      "default": "",
+      "title": "Detail",
+      "type": "string"
+    },
+    "created_at": {
+      "title": "Created At",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "request_id",
+    "action",
+    "created_at"
+  ],
+  "title": "AuditEvent",
+  "type": "object"
+}

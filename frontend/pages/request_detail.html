@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Detail - ProcureFlow</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/requestDetail.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">ProcureFlow</a>
+                <nav class="site-nav" aria-label="Main navigation">
+                    <a href="/static/pages/dashboard.html">Dashboard</a>
+                    <a href="/static/pages/approval_tasks.html">Approvals</a>
+                    <a href="/static/pages/request_form.html" class="btn btn-primary btn-sm">New Request</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container-wide">
+            <div id="error-page" class="error-page motion-fade-in" style="display:none;">
+                <div class="empty-state">
+                    <div class="empty-state-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <div class="empty-state-title">Request detail unavailable</div>
+                    <p class="empty-state-text" id="error-message">Request record not found.</p>
+                    <a href="/static/pages/dashboard.html" class="btn btn-secondary">Back to Dashboard</a>
+                </div>
+            </div>
+
+            <div id="loading-state" class="detail-loading-shell motion-fade-in">
+                <div class="detail-loading-header page-panel">
+                    <div class="skeleton-row mb-3">
+                        <div class="skeleton skeleton-pill"></div>
+                        <div class="skeleton skeleton-pill"></div>
+                    </div>
+                    <div class="skeleton skeleton-heading mb-3" style="max-width:26rem;"></div>
+                    <div class="skeleton skeleton-line mb-3" style="max-width:20rem;"></div>
+                    <div class="skeleton-row">
+                        <div class="skeleton skeleton-pill"></div>
+                        <div class="skeleton skeleton-pill"></div>
+                        <div class="skeleton skeleton-pill"></div>
+                    </div>
+                </div>
+                <div class="split-layout detail-workspace">
+                    <div>
+                        <div class="skeleton skeleton-rect mb-4" style="height:240px;"></div>
+                        <div class="skeleton skeleton-rect mb-4" style="height:220px;"></div>
+                        <div class="skeleton skeleton-rect mb-4" style="height:260px;"></div>
+                    </div>
+                    <div>
+                        <div class="skeleton skeleton-rect mb-4" style="height:220px;"></div>
+                        <div class="skeleton skeleton-rect mb-4" style="height:200px;"></div>
+                        <div class="skeleton skeleton-rect mb-4" style="height:320px;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="detail-feedback" class="state-banner-region mb-4" aria-live="polite"></div>
+
+            <div id="detail-content" class="motion-fade-in motion-delay-1" style="display:none;">
+                <section class="detail-header">
+                    <div class="detail-header-main">
+                        <div class="detail-header-topline">
+                            <span class="detail-eyebrow">Request Workspace</span>
+                            <div id="detail-badge" class="detail-badge-slot"></div>
+                        </div>
+                        <h1 id="detail-title"></h1>
+                        <span id="detail-id" class="detail-id"></span>
+                        <p id="detail-subtitle" class="detail-subtitle"></p>
+                        <div id="detail-overview-meta" class="detail-overview-meta"></div>
+                        <div id="detail-summary-strip" class="detail-summary-strip"></div>
+                    </div>
+                    <div class="detail-actions">
+                        <a href="/static/pages/request_form.html" class="btn btn-secondary btn-sm">New Request</a>
+                    </div>
+                </section>
+
+                <div class="split-layout detail-workspace">
+                    <div class="detail-main">
+                        <div class="card mb-4">
+                            <div class="card-header">Request Summary</div>
+                            <div class="card-body" id="info-fields"></div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-header">Requested Items</div>
+                            <div class="card-body" id="items-content"></div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-header">Clarifications</div>
+                            <div class="card-body" id="clarifications-content"></div>
+                        </div>
+
+                        <div class="card mb-4" id="approvals-card" style="display:none;">
+                            <div class="card-header">Approval Queue</div>
+                            <div class="card-body" id="approvals-content"></div>
+                        </div>
+                    </div>
+
+                    <aside class="detail-side">
+                        <div class="card mb-4">
+                            <div class="card-header">Status Summary</div>
+                            <div class="card-body" id="status-panel"></div>
+                        </div>
+
+                        <div class="card mb-4" id="actions-card" style="display:none;">
+                            <div class="card-header">Next Step</div>
+                            <div class="card-body" id="actions-panel"></div>
+                        </div>
+
+                        <div class="card mb-4" id="policy-card" style="display:none;">
+                            <div class="card-header">Policy Outcome</div>
+                            <div class="card-body" id="policy-panel"></div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-header">PO Readiness</div>
+                            <div class="card-body" id="po-panel"></div>
+                        </div>
+
+                        <div class="card mb-4">
+                            <div class="card-header">Audit Timeline</div>
+                            <div class="card-body" id="timeline-content"></div>
+                        </div>
+
+                        <div id="ai-cards-container"></div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span>&copy; 2026 ProcureFlow</span>
+                <span class="footer-sep">&middot;</span>
+                <span>Powered by IBM watsonx</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/ui.js"></script>
+    <script src="/static/js/caseUtils.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/aiCards.js"></script>
+    <script src="/static/js/requestDetail.js"></script>
+</body>
+</html>

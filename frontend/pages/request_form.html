@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manufacturing Intake - ProcureFlow</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/global.css">
+    <link rel="stylesheet" href="/static/css/requestForm.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">ProcureFlow</a>
+                <nav class="site-nav" aria-label="Main navigation">
+                    <a href="/static/pages/dashboard.html">Dashboard</a>
+                    <a href="/static/pages/approval_tasks.html">Approvals</a>
+                    <a href="/static/pages/request_form.html" class="btn btn-primary btn-sm active">New Request</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-content">
+        <div class="container-wide">
+            <div class="section-header motion-fade-in">
+                <div>
+                    <h1>Manufacturing Procurement Intake</h1>
+                    <p class="section-subtitle">Capture the material, part, or service need for fab review and approval routing.</p>
+                </div>
+            </div>
+
+            <div class="request-form-layout">
+                <div class="request-form motion-fade-in motion-delay-1">
+                    <div id="request-form-feedback" class="state-banner-region mb-4" aria-live="polite"></div>
+                    <form id="request-form" novalidate>
+                        <div class="form-section">
+                            <h2 class="form-section-title">Request Ownership</h2>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="requester-id">
+                                        Request Owner <span class="required">*</span>
+                                    </label>
+                                    <select class="form-select" id="requester-id" name="requester_id" required>
+                                        <option value="">Select requester</option>
+                                    </select>
+                                    <p class="form-error" id="requester-id-error"></p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label" for="department">
+                                        Owning Department <span class="required">*</span>
+                                    </label>
+                                    <select class="form-select" id="department" name="department" required>
+                                        <option value="">Select department</option>
+                                    </select>
+                                    <p class="form-error" id="department-error"></p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="cost-center">Cost Center / Charge Code</label>
+                                <input class="form-input" id="cost-center" name="cost_center" type="text" readonly
+                                       placeholder="Auto-filled from department selection">
+                                <p class="form-hint">Auto-filled from the selected department for budget and approval routing.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Request Summary</h2>
+
+                            <div class="form-group">
+                                <label class="form-label" for="title">
+                                    Request Title <span class="required">*</span>
+                                </label>
+                                <input class="form-input" id="title" name="title" type="text"
+                                       placeholder="e.g. KrF photoresist replenishment for Fab Line 3" maxlength="120" required>
+                                <p class="form-hint">Use a short summary that plant operations, procurement, and approvers can scan quickly.</p>
+                                <p class="form-error" id="title-error"></p>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="description">Operational Context and Supplier Notes</label>
+                                <textarea class="form-textarea" id="description" name="description" rows="3"
+                                          placeholder="Include tool or line context, spec notes, preferred supplier, existing vendor, or related work order (optional)"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Materials, Parts, and Services</h2>
+                            <p class="form-hint mb-3">Enter one line per need. Include quantity or lot volume in the line, for example "2 etch chamber o-ring seal kits" or "1 lot 300mm monitor wafers".</p>
+
+                            <div id="items-list">
+                                <!-- Item rows inserted by JS -->
+                            </div>
+
+                            <button type="button" class="btn btn-ghost btn-sm" id="add-item-btn">+ Add another line item</button>
+                            <p class="form-error" id="items-error"></p>
+                        </div>
+
+                        <div class="form-section">
+                            <h2 class="form-section-title">Justification and Timing</h2>
+
+                            <div class="form-group">
+                                <label class="form-label" for="justification">Operational Justification</label>
+                                <textarea class="form-textarea" id="justification" name="justification" rows="3"
+                                          placeholder="Explain production impact, maintenance need, safety stock risk, or why this request is time-sensitive"></textarea>
+                                <p class="form-hint">Strong justification often moves the request directly into policy review.</p>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="delivery-date">Target Delivery Date</label>
+                                <input class="form-input" id="delivery-date" name="delivery_date" type="date">
+                                <p class="form-hint">Use the date the material or part is needed on site for maintenance, line support, or inventory coverage.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <a href="/static/pages/dashboard.html" class="btn btn-ghost">Cancel</a>
+                            <button type="submit" class="btn btn-primary" id="submit-btn">Submit Request</button>
+                        </div>
+                    </form>
+                </div>
+
+                <aside class="workflow-panel motion-fade-in motion-delay-2">
+                    <div class="card">
+                        <div class="card-header">What happens after submission?</div>
+                        <div class="card-body">
+                            <p class="workflow-panel-copy">
+                                ProcureFlow reviews the request for completeness, asks for clarification if key operating detail is missing, checks the request against catalog and policy rules, routes the required approvals, and then prepares the request for PO generation once approvals are complete.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info mt-4">
+                        <strong>Tip:</strong> Include quantity or lot size in each line item and use the context field for preferred supplier or installed-tool details when they matter.
+                    </div>
+
+                    <!-- AI Intake Review panel (rendered by aiCards.js) -->
+                    <div id="intake-ai-panel" class="mt-4"></div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-inner">
+                <span>&copy; 2026 ProcureFlow</span>
+                <span class="footer-sep">&middot;</span>
+                <span>Powered by IBM watsonx</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/ui.js"></script>
+    <script src="/static/js/caseUtils.js"></script>
+    <script src="/static/js/api.js"></script>
+    <script src="/static/js/aiCards.js"></script>
+    <script src="/static/js/requestForm.js"></script>
+</body>
+</html>

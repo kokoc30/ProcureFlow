@@ -1,0 +1,9 @@
+fastapi>=0.115.0,<1.0.0
+uvicorn[standard]>=0.32.0,<1.0.0
+pytest>=8.0.0,<9.0.0
+httpx>=0.27.0,<1.0.0
+python-dotenv>=1.0.0
+
+# IBM watsonx AI SDK for agent tools.
+# The backend runs without this -- agents fall back to deterministic templates.
+ibm-watsonx-ai>=1.1.0,<2.0.0
