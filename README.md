@@ -12,6 +12,8 @@ It turns a free-text purchase request from a fab operations team into a structur
 
 The product is designed as a **serious enterprise workflow demo** for semiconductor supply-chain procurement, not a generic chatbot. The focus is on production continuity, material availability, policy control, and approval speed.
 
+**Try it live:** [https://procureflow-xj71.onrender.com](https://procureflow-xj71.onrender.com)
+
 ---
 
 ## Core Demo Story
@@ -497,7 +499,7 @@ Open [http://localhost:8000](http://localhost:8000) (or your chosen port).
 2. In [Render Dashboard](https://dashboard.render.com), click **New > Blueprint** and connect the repo.
 3. Render detects `render.yaml` and creates the web service automatically.
 4. In the service **Environment** tab, set `WATSONX_API_KEY` and `WATSONX_PROJECT_ID` if you want live AI features.
-5. Deploy. The app will be available at `https://procureflow.onrender.com` (or your chosen name).
+5. Deploy. The app will be available at [https://procureflow-xj71.onrender.com](https://procureflow-xj71.onrender.com).
 
 The app runs without Watsonx credentials — agents fall back to deterministic templates.
 
